@@ -6,19 +6,8 @@ public class CameraCreator : MonoBehaviour
 {
     Vector3 lastDragPosition;
 
-    /// <summary>
-    /// Normal speed of camera movement.
-    /// </summary>
     public float movementSpeed = 10f;
-
-    /// <summary>
-    /// Speed of camera movement when shift is held down,
-    /// </summary>
     public float fastMovementSpeed = 100f;
-
-    /// <summary>
-    /// Sensitivity for free look.
-    /// </summary>
     public float freeLookSensitivity = 3f;
     public float zoomSensitivity = 10f;
     public float fastZoomSensitivity = 50f;
@@ -101,9 +90,6 @@ public class CameraCreator : MonoBehaviour
         StopLooking();
     }
 
-    /// <summary>
-    /// Enable free looking.
-    /// </summary>
     public void StartLooking()
     {
         looking = true;
@@ -111,9 +97,6 @@ public class CameraCreator : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
     }
 
-    /// <summary>
-    /// Disable free looking.
-    /// </summary>
     public void StopLooking()
     {
         looking = false;
