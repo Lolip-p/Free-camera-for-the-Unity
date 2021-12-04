@@ -8,7 +8,7 @@ public class CameraCreator : MonoBehaviour
 
     public float movementSpeed = 10f;
     public float fastMovementSpeed = 100f;
-    public float freeLookSensitivity = 3f;
+    public float freeLookSensitivity = 1f;
     public float zoomSensitivity = 10f;
     public float fastZoomSensitivity = 50f;
 
@@ -16,7 +16,7 @@ public class CameraCreator : MonoBehaviour
 
     void Update()
     {
-        var fastMode = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
+        var fastMode = Input.GetKey(KeyCode.RightShift); //Fast movement speed
         var movementSpeed = fastMode ? this.fastMovementSpeed : this.movementSpeed;
 
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
@@ -39,22 +39,12 @@ public class CameraCreator : MonoBehaviour
             transform.position = transform.position + (-transform.forward * movementSpeed * Time.deltaTime);
         }
 
-        if (Input.GetKey(KeyCode.Q))
-        {
-            transform.position = transform.position + (transform.up * movementSpeed * Time.deltaTime);
-        }
-
-        if (Input.GetKey(KeyCode.E))
-        {
-            transform.position = transform.position + (-transform.up * movementSpeed * Time.deltaTime);
-        }
-
-        if (Input.GetKey(KeyCode.R) || Input.GetKey(KeyCode.PageUp))
+        if (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.PageUp)) //upward movement
         {
             transform.position = transform.position + (Vector3.up * movementSpeed * Time.deltaTime);
         }
 
-        if (Input.GetKey(KeyCode.F) || Input.GetKey(KeyCode.PageDown))
+        if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.PageDown)) //downward movement
         {
             transform.position = transform.position + (-Vector3.up * movementSpeed * Time.deltaTime);
         }
